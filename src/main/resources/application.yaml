@@ -7,11 +7,21 @@ spring:
     host: ${MONGO_HOST}
     database: gen
 
+server:
+  servlet:
+    context-path: /svc
+
 management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: health
   endpoint:
     health:
-      show-details: always
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
