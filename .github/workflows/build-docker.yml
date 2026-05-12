@@ -1,7 +1,7 @@
 name: Build Maven + Push Docker
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "*" ]
 
 jobs:
   build:
