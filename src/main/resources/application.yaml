@@ -6,3 +6,12 @@ spring:
     password: ${MONGO_PASSWORD}
     host: ${MONGO_HOST}
     database: gen
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
