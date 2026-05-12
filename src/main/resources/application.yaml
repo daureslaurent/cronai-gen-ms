@@ -2,4 +2,7 @@ spring:
   application:
     name: cronai-gen-ms
   mongodb:
-    uri: mongodb://localhost:27017/mydatabase
+    username: ${MONGO_USERNAME}
+    password: ${MONGO_PASSWORD}
+    host: ${MONGO_HOST}
+    database: gen
