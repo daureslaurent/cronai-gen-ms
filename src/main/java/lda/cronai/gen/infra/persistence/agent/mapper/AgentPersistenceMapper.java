@@ -1,6 +1,6 @@
 package lda.cronai.gen.infra.persistence.agent.mapper;
 
-import lda.cronai.gen.domain.model.Agent;
+import lda.cronai.gen.domain.agent.model.Agent;
 import lda.cronai.gen.infra.persistence.agent.entity.AgentEntity;
 import org.mapstruct.Mapper;
 

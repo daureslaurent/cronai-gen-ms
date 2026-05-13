@@ -1,4 +1,4 @@
-package lda.cronai.gen.domain.model;
+package lda.cronai.gen.domain.agent.model;
 
 import lombok.Builder;
 

@@ -1,0 +1,17 @@
+spring:
+  mongodb:
+    username: ${MONGO_USERNAME}
+    password: ${MONGO_PASSWORD}
+    host: ${MONGO_HOST}
+  cloud:
+    stream:
+      binders:
+        rabbit_infra:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: ${RABBIT_HOST}
+                port: ${RABBIT_PORT}
+                username: ${RABBIT_USERNAME}
+                password: ${RABBIT_PASSWORD}

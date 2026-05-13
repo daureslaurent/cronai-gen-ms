@@ -1,6 +1,6 @@
-package lda.cronai.gen.domain.port;
+package lda.cronai.gen.domain.agent.port;
 
-import lda.cronai.gen.domain.model.Agent;
+import lda.cronai.gen.domain.agent.model.Agent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

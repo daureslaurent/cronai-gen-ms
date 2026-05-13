@@ -1,7 +1,7 @@
 package lda.cronai.gen.infra.persistence.agent;
 
-import lda.cronai.gen.domain.model.Agent;
-import lda.cronai.gen.domain.port.AgentPersistenceOutput;
+import lda.cronai.gen.domain.agent.model.Agent;
+import lda.cronai.gen.domain.agent.port.AgentPersistenceOutput;
 import lda.cronai.gen.infra.persistence.agent.mapper.AgentPersistenceMapper;
 import lda.cronai.gen.infra.persistence.agent.repository.AgentRepository;
 import lombok.RequiredArgsConstructor;

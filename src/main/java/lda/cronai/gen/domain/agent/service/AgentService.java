@@ -1,9 +1,8 @@
-package lda.cronai.gen.domain.service;
+package lda.cronai.gen.domain.agent.service;
 
-import lda.cronai.gen.application.api.rest.agent.model.AgentRequest;
-import lda.cronai.gen.domain.model.Agent;
-import lda.cronai.gen.domain.port.AgentInput;
-import lda.cronai.gen.domain.port.AgentPersistenceOutput;
+import lda.cronai.gen.domain.agent.model.Agent;
+import lda.cronai.gen.domain.agent.port.AgentInput;
+import lda.cronai.gen.domain.agent.port.AgentPersistenceOutput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
