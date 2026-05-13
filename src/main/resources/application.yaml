@@ -6,6 +6,9 @@ spring:
     password: ${MONGO_PASSWORD}
     host: ${MONGO_HOST}
     database: gen
+    representation:
+      uuid: standard
+
 
 server:
   servlet:
