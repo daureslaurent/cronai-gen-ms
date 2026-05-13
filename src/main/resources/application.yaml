@@ -26,6 +26,8 @@ server:
     context-path: /svc
 
 jobrunr:
+  database:
+    database-name: ${spring.mongodb.database}
   background-job-server:
     enabled: true
     thread-type: VirtualThreads
