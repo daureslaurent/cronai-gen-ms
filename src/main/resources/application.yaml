@@ -2,9 +2,9 @@ spring:
   application:
     name: cronai-gen-ms
   mongodb:
-    username: ${MONGO_USERNAME}
-    password: ${MONGO_PASSWORD}
-    host: ${MONGO_HOST}
+#    username: ${MONGO_USERNAME}
+#    password: ${MONGO_PASSWORD}
+#    host: ${MONGO_HOST}
     database: gen
     representation:
       uuid: standard
@@ -15,10 +15,10 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: ${RABBIT_HOST}
-                port: ${RABBIT_PORT}
-                username: ${RABBIT_USERNAME}
-                password: ${RABBIT_PASSWORD}
+#                host: ${RABBIT_HOST}
+#                port: ${RABBIT_PORT}
+#                username: ${RABBIT_USERNAME}
+#                password: ${RABBIT_PASSWORD}
                 virtual-host: /
 
 server:

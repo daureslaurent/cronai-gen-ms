@@ -1,13 +1,24 @@
+# ConfigMap to copy with right value in K8S
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cronai-gen-ms-config
-#data:
-#  MONGO_USERNAME: username
-#  MONGO_PASSWORD: password
-#  MONGO_HOST: host
-#
-#  RABBIT_HOST: host
-#  RABBIT_PORT: 1234
-#  RABBIT_USERNAME: user
-#  RABBIT_PASSWORD: pass
+data:
+  application-external.yml: |
+    spring:
+      mongodb:
+        username: xxx
+        password: yyy
+        host: xxx
+      cloud:
+        stream:
+          binders:
+            rabbit_infra:
+              type: rabbit
+              environment:
+                spring:
+                  rabbitmq:
+                    host: xxx
+                    port: "123"
+                    username: xxx
+                    password: xxx

@@ -20,10 +20,22 @@ image:
   tag: "APP_IMAGE_DOCKER_TAG"
   probeContext: "/svc/actuator"
 
-envFrom:
-  - configMapRef:
-      name: cronai-gen-ms-config
-  - configMapRef:
+#envFrom:
+#  - configMapRef:
+#      name: cronai-gen-ms-config
+#  - configMapRef:
+#      name: cronai-gen-ms-config-env
+
+env:
+  - name: SPRING_CONFIG_IMPORT
+    value: "file:/etc/config/application-external.yml"
+volumeMounts:
+  - name: extra-config
+    mountPath: /etc/config
+    readOnly: true
+volumes:
+  - name: extra-config
+    configMap:
       name: cronai-gen-ms-config-env
 
 imagePullSecrets:
