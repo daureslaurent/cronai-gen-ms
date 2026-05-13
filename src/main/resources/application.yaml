@@ -14,12 +14,12 @@ server:
   servlet:
     context-path: /svc
 
-org:
-  jobrunr:
-    background-job-server:
-      enabled: true
-    dashboard:
-      enabled: true
+jobrunr:
+  background-job-server:
+    enabled: true
+  dashboard:
+    enabled: true
+    port: 8000
 
 
 management:
