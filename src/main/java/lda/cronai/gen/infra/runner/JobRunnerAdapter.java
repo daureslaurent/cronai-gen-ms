@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.jobrunr.scheduling.JobScheduler;
 import org.springframework.stereotype.Service;
 
+import java.util.function.Function;
+
 @Service
 @RequiredArgsConstructor
 public class JobRunnerAdapter implements JobRunnerOutput {
@@ -15,9 +17,7 @@ public class JobRunnerAdapter implements JobRunnerOutput {
 
     @Override
     public String addCronJob(String id, String cron) {
-        return jobScheduler.scheduleRecurrently(id, cron, () ->
-                agentRunnerInput.runAgent(id)
-        );
+        return jobScheduler.scheduleRecurrently(id, cron, () -> agentRunnerInput.runAgent(id));
     }
 
     @Override

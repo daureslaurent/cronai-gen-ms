@@ -4,6 +4,7 @@ import lda.cronai.gen.domain.JobRunnerOutput;
 import lda.cronai.gen.domain.agent.model.Agent;
 import lda.cronai.gen.domain.agent.port.AgentInput;
 import lda.cronai.gen.domain.agent.port.AgentPersistenceOutput;
+import lda.cronai.gen.domain.agent.port.AgentRunnerInput;
 import lda.cronai.gen.domain.tools.port.ToolsInput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ public class AgentService implements AgentInput {
     private final AgentPersistenceOutput agentPersistence;
     private final ToolsInput toolsInput;
     private final JobRunnerOutput jobRunnerOutput;
+    private final AgentRunnerInput agentRunnerInput;
 
     @Override
     public Agent create(Agent request) {
@@ -31,7 +33,7 @@ public class AgentService implements AgentInput {
         }
 
         // Validate CronExpression
-        if (CronExpression.isValidExpression(request.cron())) {
+        if (!CronExpression.isValidExpression(request.cron())) {
             throw new RuntimeException("Cron expression invalid !");
         }
 
