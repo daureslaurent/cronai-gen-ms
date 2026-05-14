@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AgentRepository extends MongoRepository<AgentEntity, String> {
-    Page<AgentEntity> findByUserId(String userId, Pageable pageable);
+//    Page<AgentEntity> findByUserId(String userId, Pageable pageable);
 }

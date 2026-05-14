@@ -50,8 +50,9 @@ public class AgentPersistenceAdapter implements AgentPersistenceOutput {
 
     @Override
     public Page<Agent> findByUserId(String userId, Pageable pageable) {
-        return repository
-                .findByUserId(userId, pageable)
-                .map(mapper::toDomain);
+        return Page.empty();
+//        return repository
+//                .findByUserId(userId, pageable)
+//                .map(mapper::toDomain);
     }
 }
