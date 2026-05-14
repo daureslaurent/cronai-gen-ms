@@ -1,5 +1,6 @@
 package lda.cronai.gen.domain.agent.service;
 
+import lda.cronai.gen.domain.JobRunnerOutput;
 import lda.cronai.gen.domain.agent.model.Agent;
 import lda.cronai.gen.domain.agent.port.AgentInput;
 import lda.cronai.gen.domain.agent.port.AgentPersistenceOutput;
@@ -19,6 +20,7 @@ public class AgentService implements AgentInput {
 
     private final AgentPersistenceOutput agentPersistence;
     private final ToolsInput toolsInput;
+    private final JobRunnerOutput jobRunnerOutput;
 
     @Override
     public Agent create(Agent request) {
@@ -33,6 +35,9 @@ public class AgentService implements AgentInput {
             throw new RuntimeException("Cron expression invalid !");
         }
 
+        final var agentCreated = agentPersistence.save(request);
+        final var runnerId = jobRunnerOutput.addCronJob(agentCreated.id(), agentCreated.cron());
+
         // Check if user already has max agents
 //        Page<Agent> userAgents = agentPersistence.findByUserId(userId, Pageable.ofSize(MAX_AGENTS_PER_USER + 1));
         
@@ -40,7 +45,10 @@ public class AgentService implements AgentInput {
 //            throw new IllegalStateException("User already has the maximum number of agents (" + MAX_AGENTS_PER_USER + ")");
 //        }
         
-        return agentPersistence.save(request);
+        return agentPersistence.save(agentCreated.toBuilder()
+                .runnerId(runnerId)
+                .build()
+        );
     }
 
     @Override

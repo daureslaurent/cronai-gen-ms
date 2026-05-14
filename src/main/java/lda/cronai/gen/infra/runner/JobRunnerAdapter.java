@@ -14,8 +14,8 @@ public class JobRunnerAdapter implements JobRunnerOutput {
     private final AgentRunnerInput agentRunnerInput;
 
     @Override
-    public void addCronJob(String id, String cron) {
-        jobScheduler.scheduleRecurrently(id, cron, () ->
+    public String addCronJob(String id, String cron) {
+        return jobScheduler.scheduleRecurrently(id, cron, () ->
                 agentRunnerInput.runAgent(id)
         );
     }

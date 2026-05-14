@@ -5,13 +5,15 @@ import lombok.Builder;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Builder
+@Builder(toBuilder = true)
 public record Agent (
         String id,
         String name,
         String description,
-        String cron,
         Set<String> tools,
+
+        String cron,
+        String runnerId,
 
         LocalDateTime createdAt,
         LocalDateTime updatedAt
